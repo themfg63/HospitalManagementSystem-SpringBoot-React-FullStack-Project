@@ -1,12 +1,12 @@
-import React from "react";
-import SideBar from "../Components/SideBar/SideBar.tsx";
-import Header from "../Components/Header/Header.tsx";
-import { Outlet } from "react-router-dom";
+import React from 'react';
+import Sidebar from '../Components/Sidebar/Sidebar.tsx';
+import Header from '../Components/Header/Header.tsx';
+import { Outlet } from 'react-router-dom';
 
 const AdminDashboard = () => {
-    return(
+    return (
         <div className="flex">
-            <SideBar />
+            <Sidebar />
             <div className="w-full flex flex-col">
                 <Header />
                 <Outlet />
@@ -15,4 +15,4 @@ const AdminDashboard = () => {
     )
 }
 
-export default AdminDashboard;
+export default AdminDashboard

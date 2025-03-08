@@ -1,6 +1,5 @@
-import React from "react";
-
-import { Menu, Text, Avatar } from '@mantine/core';
+import React from 'react';
+import { Avatar, Menu, Text } from '@mantine/core';
 import {
   IconSettings,
   IconSearch,
@@ -10,13 +9,13 @@ import {
   IconArrowsLeftRight,
 } from '@tabler/icons-react';
 
-const ProfileMenu = () => {
+const ProfileMenu = () =>{
   return (
     <Menu shadow="md" width={200}>
       <Menu.Target>
-        <div className="flex items-center space-x-4">
-            <span className="font-medium text-lg text-neutral-900">Muhammed Furkan</span>
-            <Avatar variant="filled" src="avatar.png" alt="its me" size={50} />
+        <div className="flex items-center gap-3">
+            <span className="font-medium text-lg text-natural-900">Muhammed Furkan</span>
+            <Avatar variant='filled' src="avatar.png" size={50} alt='its me' />
         </div>
       </Menu.Target>
 
@@ -61,4 +60,4 @@ const ProfileMenu = () => {
   );
 }
 
-export default ProfileMenu;
+export default ProfileMenu
