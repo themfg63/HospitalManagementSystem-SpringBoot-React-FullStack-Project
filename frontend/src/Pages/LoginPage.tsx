@@ -46,7 +46,7 @@ const LoginPage = () => {
                         placeholder="Şifre"
                     />
                     <Button radius="md" size="md" type="submit" color="pink">Giriş Yap</Button>
-                    <div className="text-natural-100 text-sm self-center">Hesabın yok mu? <Link to="register" className="hover:underline">Kayıt Ol</Link></div>
+                    <div className="text-natural-100 text-sm self-center">Hesabın yok mu? <Link to="/register" className="hover:underline">Kayıt Ol</Link></div>
                 </form>
             </div>
         </div>
