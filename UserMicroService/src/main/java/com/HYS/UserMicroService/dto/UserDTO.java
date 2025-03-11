@@ -4,34 +4,26 @@ import com.HYS.UserMicroService.dto.enums.Roles;
 import com.HYS.UserMicroService.entity.User;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+@Data
+@NoArgsConstructor
 public class UserDTO {
     private Long id;
-    @NotBlank(message = "Ad Soyad Bos Birakilamaz!")
+
+    @NotBlank(message = "Ad Soyad Boş Bırakılmaz.")
     private String name;
-    @NotBlank(message = "Email Bos Birakilamaz!")
-    @Email(message = "Lütfen Gecerli Bir Email Adresi Giriniz.")
+
+    @NotBlank(message = "Email Adresi Boş Bırakılamaz.")
+    @Email(message = "Lütfen Geçerli Bir Email Adresi Giriniz.")
     private String email;
-    @NotBlank(message = "Sifre Bos Birakilamaz!")
-    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[\\W]).{8,15}$", message = "Şifreniz en az 1 küçük, 1 büyük harf, 1 özel işaret ve 1 sayı içerip minimum 8 karakterli olmalıdır.")
+
+    @NotBlank(message = "Şifre Boş Bırakılamaz.")
     private String password;
+
     private Roles role;
-
-    public UserDTO() {
-    }
-
-    public UserDTO(Long id, String name, String email, String password, Roles role) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.role = role;
-    }
 
     public User toEntity(){
         return new User(
@@ -41,6 +33,14 @@ public class UserDTO {
                 this.password,
                 this.role
         );
+    }
+
+    public UserDTO(Long id, String name, String email, String password, Roles role) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.role = role;
     }
 
     public Long getId() {

@@ -6,8 +6,13 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Table(name = "User")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +27,14 @@ public class User {
 
     private Roles role;
 
-    public User() {
+    public UserDTO toDTO() {
+        return new UserDTO(
+                this.id,
+                this.name,
+                this.email,
+                this.password,
+                this.role
+        );
     }
 
     public User(Long id, String name, String email, String password, Roles role) {
@@ -31,16 +43,6 @@ public class User {
         this.email = email;
         this.password = password;
         this.role = role;
-    }
-
-    public UserDTO toDTO(){
-        return new UserDTO(
-                this.id,
-                this.name,
-                this.email,
-                this.password,
-                this.role
-        );
     }
 
     public Long getId() {
